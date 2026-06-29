@@ -1,0 +1,47 @@
+{
+  "name": "@atanupaul76/ngx-password-strength",
+  "version": "2.0.0",
+  "description": "Standalone Angular password strength indicator + reactive-forms validator. Zero CSS framework dependencies.",
+  "keywords": [
+    "angular",
+    "angular-component",
+    "password",
+    "password-strength",
+    "password-validator",
+    "validator",
+    "strength-meter",
+    "reactive-forms",
+    "standalone",
+    "signals",
+    "typescript"
+  ],
+  "author": {
+    "name": "atanupaul76",
+    "email": "atanupaul76@gmail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/atanupaul76/ngx-password-strength#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atanupaul76/ngx-password-strength.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atanupaul76/ngx-password-strength/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=17.0.0",
+    "@angular/core": ">=17.0.0",
+    "@angular/forms": ">=17.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

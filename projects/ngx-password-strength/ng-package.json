@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/ngx-password-strength",
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  },
+  "assets": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "USER_GUIDE.md"
+  ]
+}
