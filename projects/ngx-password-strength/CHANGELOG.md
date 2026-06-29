@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-06-30
+
+### Changed
+- README and USER_GUIDE rewritten to lead with the **typed-variable** pattern for `[config]` — declaring `pwdConfig: PasswordValidatorConfig = { ... }` in the component class instead of an inline object literal in the template. This makes IDE autocomplete work for every config field (Angular Language Service has weak autocomplete inside template object literals). No library code or behaviour changes.
+
 ## [1.0.1] - 2026-06-30
 
 ### Fixed
@@ -32,5 +37,6 @@ Initial public release as `ngx-password-strength-validator`.
 
 34 Playwright e2e tests (component render, rule toggles, strength-bar progression, validator error shape, outputs, theming/CSS variables, i18n, Unicode regex).
 
+[1.0.2]: https://github.com/paulatanu1/ngx-password-strength/releases/tag/v1.0.2
 [1.0.1]: https://github.com/paulatanu1/ngx-password-strength/releases/tag/v1.0.1
 [1.0.0]: https://github.com/paulatanu1/ngx-password-strength/releases/tag/v1.0.0

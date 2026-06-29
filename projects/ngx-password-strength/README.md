@@ -23,38 +23,63 @@ Peer deps: `@angular/common`, `@angular/core` (and `@angular/forms` if you use `
 
 ## Implementation
 
-Standalone component — add it to `imports` and bind `[password]`. That's it.
+Standalone component — add it to `imports` and bind `[password]`. **Declare your config as a typed variable in TS** (not inline in the template) so your IDE autocompletes every field of `PasswordValidatorConfig`.
+
+**`app.component.ts`** — typed config + handlers (full IDE autocomplete):
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { PasswordStrengthComponent } from 'ngx-password-strength-validator';
+import {
+  PasswordStrengthComponent,
+  type PasswordValidatorConfig,
+  type PasswordStrengthState,
+} from 'ngx-password-strength-validator';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [PasswordStrengthComponent],
-  template: `
-    <input type="password" #pwd (input)="value.set(pwd.value)" />
-
-    <ngx-password-strength
-      [password]="value()"
-      [config]="{ minLength: 12 }"
-      (strengthChange)="onStrength($event)"
-      (validChange)="canSubmit.set($event)"
-    />
-  `,
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
   readonly value = signal('');
   readonly canSubmit = signal(false);
-  onStrength(s: { index: number; label: string }) { /* ... */ }
+
+  // 👇 Autocomplete shows every config field as you type
+  readonly pwdConfig: PasswordValidatorConfig = {
+    minLength: 12,
+    maxLength: 32,
+    requireUppercase: true,
+    requireLowercase: true,
+    requireDigit: true,
+    requireSpecial: true,
+  };
+
+  onStrength(state: PasswordStrengthState) {
+    // state.index: 0 | 1 | 2 | 3 ; state.label: 'Weak' | 'Fair' | 'Good' | 'Strong'
+  }
 }
 ```
 
-The component is happy without any input box at all — pass any `string` (e.g. a server-side preview):
+**`app.component.html`** — bind the variables, never inline-literal:
 
 ```html
-<ngx-password-strength [password]="someStringFromAnywhere" />
+<input type="password" #pwd (input)="value.set(pwd.value)" />
+
+<ngx-password-strength
+  [password]="value()"
+  [config]="pwdConfig"
+  (strengthChange)="onStrength($event)"
+  (validChange)="canSubmit.set($event)"
+/>
+```
+
+> **Why a typed variable instead of `[config]="{ minLength: 12 }"`?** Angular Language Service has weak autocomplete inside object literals in template bindings — typing `[config]="{ |"` rarely surfaces the inner keys. In a `.ts` file with an explicit `PasswordValidatorConfig` annotation, autocomplete works perfectly. Bonus: you can pass the same `pwdConfig` reference to `passwordValidator(pwdConfig)` for UI/validator parity.
+
+The component is also happy without any input box — pass any `string` (e.g. a server-side preview):
+
+```html
+<ngx-password-strength [password]="someStringFromAnywhere" [config]="pwdConfig" />
 ```
 
 ## Parameters (Inputs)

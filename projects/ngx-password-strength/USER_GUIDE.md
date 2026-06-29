@@ -56,13 +56,35 @@ Peer dependencies declared as `>= 17.0.0` for `@angular/common`, `@angular/core`
 
 ## 4. Implementation
 
+### 4.0 Developer-friendly setup — read this first
+
+To get full IDE autocomplete on every config field, **always declare your config as a typed variable in TS** and bind that variable. Don't inline an object literal in the template — Angular Language Service has weak autocomplete for object literals inside template bindings.
+
+```ts
+import type { PasswordValidatorConfig } from 'ngx-password-strength-validator';
+
+readonly pwdConfig: PasswordValidatorConfig = {
+  minLength: 12,
+  // ↑ press Ctrl-Space here and the IDE lists every config field
+};
+```
+
+```html
+<ngx-password-strength [password]="value()" [config]="pwdConfig" />
+```
+
+The examples below all follow this pattern. For full IDE help also ensure your `tsconfig.json` has `"strictTemplates": true` under `angularCompilerOptions`, and enable the **Angular Language Service** VS Code extension.
+
 ### 4.1 Standalone — no input element
 
 The component is happy with any string. You don't need a form or an input.
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { PasswordStrengthComponent } from 'ngx-password-strength-validator';
+import {
+  PasswordStrengthComponent,
+  type PasswordValidatorConfig,
+} from 'ngx-password-strength-validator';
 
 @Component({
   standalone: true,
@@ -70,25 +92,28 @@ import { PasswordStrengthComponent } from 'ngx-password-strength-validator';
   template: `
     <ngx-password-strength
       [password]="preview()"
-      [config]="{ minLength: 10 }"
+      [config]="pwdConfig"
     />
   `,
 })
 export class PreviewPane {
   readonly preview = signal('hunter2');
+  readonly pwdConfig: PasswordValidatorConfig = { minLength: 10 };
 }
 ```
 
 ### 4.2 With your own `<input>` (signal binding)
 
-```html
-<input type="password" #pwd (input)="value.set(pwd.value)" />
-<ngx-password-strength [password]="value()" [config]="cfg" />
+```ts
+import type { PasswordValidatorConfig } from 'ngx-password-strength-validator';
+
+readonly value = signal('');
+readonly pwdConfig: PasswordValidatorConfig = { minLength: 12 };
 ```
 
-```ts
-readonly value = signal('');
-readonly cfg = { minLength: 12 };
+```html
+<input type="password" #pwd (input)="value.set(pwd.value)" />
+<ngx-password-strength [password]="value()" [config]="pwdConfig" />
 ```
 
 ### 4.3 With `[(ngModel)]`
@@ -99,12 +124,12 @@ readonly cfg = { minLength: 12 };
   imports: [FormsModule, PasswordStrengthComponent],
   template: `
     <input type="password" [(ngModel)]="value" name="pwd" />
-    <ngx-password-strength [password]="value" [config]="cfg" />
+    <ngx-password-strength [password]="value" [config]="pwdConfig" />
   `,
 })
 export class WithNgModel {
   value = '';
-  cfg = { minLength: 12 };
+  readonly pwdConfig: PasswordValidatorConfig = { minLength: 12 };
 }
 ```
 
