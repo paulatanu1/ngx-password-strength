@@ -5,7 +5,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "ngx-password-validator": ["dist/ngx-password-strength"]
+      "ngx-password-strength-validator": ["dist/ngx-password-strength"]
     },
     "strict": true,
     "noImplicitOverride": true,

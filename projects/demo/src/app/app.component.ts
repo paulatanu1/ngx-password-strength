@@ -6,7 +6,7 @@ import {
   type PasswordRule,
   type PasswordStrengthState,
   type PasswordValidatorConfig,
-} from 'ngx-password-validator';
+} from 'ngx-password-strength-validator';
 
 @Component({
   selector: 'demo-root',

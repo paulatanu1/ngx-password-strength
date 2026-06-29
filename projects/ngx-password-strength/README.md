@@ -1,8 +1,8 @@
 # ngx-password-strength
 
-[![npm version](https://img.shields.io/npm/v/ngx-password-validator.svg)](https://www.npmjs.com/package/ngx-password-validator)
-[![npm downloads](https://img.shields.io/npm/dm/ngx-password-validator.svg)](https://www.npmjs.com/package/ngx-password-validator)
-[![license](https://img.shields.io/npm/l/ngx-password-validator.svg)](./LICENSE)
+[![npm version](https://img.shields.io/npm/v/ngx-password-strength-validator.svg)](https://www.npmjs.com/package/ngx-password-strength-validator)
+[![npm downloads](https://img.shields.io/npm/dm/ngx-password-strength-validator.svg)](https://www.npmjs.com/package/ngx-password-strength-validator)
+[![license](https://img.shields.io/npm/l/ngx-password-strength-validator.svg)](./LICENSE)
 [![Angular](https://img.shields.io/badge/Angular-%E2%89%A517-dd0031.svg)](https://angular.dev)
 
 A standalone Angular **presentation primitive** for password strength feedback, plus a matching reactive-forms `ValidatorFn`. Strict types, fully configurable, theme-able via CSS variables, zero CSS framework dependencies.
@@ -16,7 +16,7 @@ A standalone Angular **presentation primitive** for password strength feedback, 
 ## Install
 
 ```bash
-npm install ngx-password-validator
+npm install ngx-password-strength-validator
 ```
 
 Peer deps: `@angular/common`, `@angular/core` (and `@angular/forms` if you use `passwordValidator`), all `>= 17.0.0`.
@@ -27,7 +27,7 @@ Standalone component — add it to `imports` and bind `[password]`. That's it.
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { PasswordStrengthComponent } from 'ngx-password-validator';
+import { PasswordStrengthComponent } from 'ngx-password-strength-validator';
 
 @Component({
   selector: 'app-root',
@@ -100,7 +100,7 @@ All three emit on every meaningful change.
 
 ```ts
 import { FormControl } from '@angular/forms';
-import { passwordValidator } from 'ngx-password-validator';
+import { passwordValidator } from 'ngx-password-strength-validator';
 
 const ctrl = new FormControl('', {
   validators: [passwordValidator({ minLength: 12 })],

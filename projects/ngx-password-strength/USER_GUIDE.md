@@ -49,7 +49,7 @@ No CSS framework is needed.
 ## 3. Installation
 
 ```bash
-npm install ngx-password-validator
+npm install ngx-password-strength-validator
 ```
 
 Peer dependencies declared as `>= 17.0.0` for `@angular/common`, `@angular/core`, and `@angular/forms`.
@@ -62,7 +62,7 @@ The component is happy with any string. You don't need a form or an input.
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { PasswordStrengthComponent } from 'ngx-password-validator';
+import { PasswordStrengthComponent } from 'ngx-password-strength-validator';
 
 @Component({
   standalone: true,
@@ -117,7 +117,7 @@ export class WithNgModel {
 ```ts
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PasswordStrengthComponent, passwordValidator } from 'ngx-password-validator';
+import { PasswordStrengthComponent, passwordValidator } from 'ngx-password-strength-validator';
 
 const PWD_RULES = { minLength: 12 } as const;
 
@@ -353,7 +353,7 @@ What you should still do:
 ## 12. Type reference
 
 ```ts
-// Re-exported from 'ngx-password-validator'
+// Re-exported from 'ngx-password-strength-validator'
 export type PasswordRuleKey =
   | 'length' | 'noSpace'
   | 'upper'  | 'lower'  | 'digit' | 'special'
@@ -415,7 +415,7 @@ export declare class PasswordStrengthComponent {
 
 ```ts
 import { FormControl } from '@angular/forms';
-import { passwordValidator } from 'ngx-password-validator';
+import { passwordValidator } from 'ngx-password-strength-validator';
 
 const v = passwordValidator({ minLength: 12 });
 
@@ -429,7 +429,7 @@ expect(new FormControl('Aaaaaaaaaaa1!', { validators: [v] }).errors).toBeNull();
 
 ```ts
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PasswordStrengthComponent } from 'ngx-password-validator';
+import { PasswordStrengthComponent } from 'ngx-password-strength-validator';
 
 it('emits validChange(true) when every rule is met', async () => {
   TestBed.configureTestingModule({ imports: [PasswordStrengthComponent] });
