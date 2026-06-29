@@ -1,8 +1,8 @@
 # ngx-password-strength
 
-[![npm version](https://img.shields.io/npm/v/@atanupaul76/ngx-password-strength.svg)](https://www.npmjs.com/package/@atanupaul76/ngx-password-strength)
-[![npm downloads](https://img.shields.io/npm/dm/@atanupaul76/ngx-password-strength.svg)](https://www.npmjs.com/package/@atanupaul76/ngx-password-strength)
-[![license](https://img.shields.io/npm/l/@atanupaul76/ngx-password-strength.svg)](./LICENSE)
+[![npm version](https://img.shields.io/npm/v/ngx-password-validator.svg)](https://www.npmjs.com/package/ngx-password-validator)
+[![npm downloads](https://img.shields.io/npm/dm/ngx-password-validator.svg)](https://www.npmjs.com/package/ngx-password-validator)
+[![license](https://img.shields.io/npm/l/ngx-password-validator.svg)](./LICENSE)
 [![Angular](https://img.shields.io/badge/Angular-%E2%89%A517-dd0031.svg)](https://angular.dev)
 
 A standalone Angular **presentation primitive** for password strength feedback, plus a matching reactive-forms `ValidatorFn`. Strict types, fully configurable, theme-able via CSS variables, zero CSS framework dependencies.
@@ -16,7 +16,7 @@ A standalone Angular **presentation primitive** for password strength feedback, 
 ## Install
 
 ```bash
-npm install @atanupaul76/ngx-password-strength
+npm install ngx-password-validator
 ```
 
 Peer deps: `@angular/common`, `@angular/core` (and `@angular/forms` if you use `passwordValidator`), all `>= 17.0.0`.
@@ -27,7 +27,7 @@ Standalone component — add it to `imports` and bind `[password]`. That's it.
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { PasswordStrengthComponent } from '@atanupaul76/ngx-password-strength';
+import { PasswordStrengthComponent } from 'ngx-password-validator';
 
 @Component({
   selector: 'app-root',
@@ -100,7 +100,7 @@ All three emit on every meaningful change.
 
 ```ts
 import { FormControl } from '@angular/forms';
-import { passwordValidator } from '@atanupaul76/ngx-password-strength';
+import { passwordValidator } from 'ngx-password-validator';
 
 const ctrl = new FormControl('', {
   validators: [passwordValidator({ minLength: 12 })],
