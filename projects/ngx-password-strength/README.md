@@ -2,14 +2,14 @@
 
 [![npm version](https://img.shields.io/npm/v/ngx-password-strength-validator.svg)](https://www.npmjs.com/package/ngx-password-strength-validator)
 [![npm downloads](https://img.shields.io/npm/dm/ngx-password-strength-validator.svg)](https://www.npmjs.com/package/ngx-password-strength-validator)
-[![license](https://img.shields.io/npm/l/ngx-password-strength-validator.svg)](./LICENSE)
+[![license](https://img.shields.io/npm/l/ngx-password-strength-validator.svg)](https://github.com/paulatanu1/ngx-password-strength/blob/main/projects/ngx-password-strength/LICENSE)
 [![Angular](https://img.shields.io/badge/Angular-%E2%89%A517-dd0031.svg)](https://angular.dev)
 
 A standalone Angular **presentation primitive** for password strength feedback, plus a matching reactive-forms `ValidatorFn`. Strict types, fully configurable, theme-able via CSS variables, zero CSS framework dependencies.
 
 **Bring your own input.** `<ngx-password-strength>` never renders an `<input>`. You give it a `[password]` value from wherever — a signal, `ngModel`, `formControlName`, server preview — and it draws the bar + requirements list.
 
-📖 **Full walkthrough:** [USER_GUIDE.md](./USER_GUIDE.md)
+📖 **Full walkthrough:** [USER_GUIDE.md](https://github.com/paulatanu1/ngx-password-strength/blob/main/projects/ngx-password-strength/USER_GUIDE.md)
 
 ---
 
@@ -128,7 +128,7 @@ ngx-password-strength {
 }
 ```
 
-Full variable list is in [USER_GUIDE.md](./USER_GUIDE.md#8-theming--styling).
+Full variable list is in [USER_GUIDE.md](https://github.com/paulatanu1/ngx-password-strength/blob/main/projects/ngx-password-strength/USER_GUIDE.md#8-theming--styling).
 
 ## i18n
 
@@ -148,4 +148,4 @@ labels: PasswordStrengthLabels = {
 
 ## License
 
-[MIT](./LICENSE) © atanupaul76
+[MIT](https://github.com/paulatanu1/ngx-password-strength/blob/main/projects/ngx-password-strength/LICENSE) © atanupaul76

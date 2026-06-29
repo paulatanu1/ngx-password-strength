@@ -1,6 +1,6 @@
 {
   "name": "ngx-password-strength-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Standalone Angular password strength indicator + reactive-forms validator. Strict types, signal API, CSS-variable theming, i18n. Zero CSS framework dependencies.",
   "keywords": [
     "angular",
@@ -38,7 +38,8 @@
   "homepage": "https://github.com/paulatanu1/ngx-password-strength#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paulatanu1/ngx-password-strength.git"
+    "url": "git+https://github.com/paulatanu1/ngx-password-strength.git",
+    "directory": "projects/ngx-password-strength"
   },
   "bugs": {
     "url": "https://github.com/paulatanu1/ngx-password-strength/issues"

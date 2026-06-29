@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-06-30
+
+### Fixed
+- README: relative links (`USER_GUIDE.md`, `LICENSE`) replaced with absolute GitHub URLs so they resolve correctly on npmjs.com (the package lives in a subdirectory of the repo).
+- `package.json`: added `repository.directory: "projects/ngx-password-strength"` so npm-side tools can locate the package source within the monorepo.
+
 ## [1.0.0] - 2026-06-30
 
 Initial public release as `ngx-password-strength-validator`.
@@ -26,4 +32,5 @@ Initial public release as `ngx-password-strength-validator`.
 
 34 Playwright e2e tests (component render, rule toggles, strength-bar progression, validator error shape, outputs, theming/CSS variables, i18n, Unicode regex).
 
+[1.0.1]: https://github.com/paulatanu1/ngx-password-strength/releases/tag/v1.0.1
 [1.0.0]: https://github.com/paulatanu1/ngx-password-strength/releases/tag/v1.0.0
